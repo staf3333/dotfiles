@@ -6,11 +6,13 @@ My personal config files for neovim, tmux, and zsh.
 
 ```
 dotfiles/
-├── nvim/.config/nvim/   # Neovim config
-├── tmux/.tmux.conf      # Tmux config
-├── zsh/.zshrc           # Zsh config
-├── install.sh           # Mac/Linux installer
-└── install.ps1          # Windows installer (nvim only, use WSL for tmux/zsh)
+├── nvim/.config/nvim/       # Neovim config
+├── windows-terminal/        # Windows Terminal settings
+├── powershell/              # PowerShell profile
+├── tmux/.tmux.conf          # Tmux config
+├── zsh/.zshrc               # Zsh config
+├── install.sh               # Mac/Linux installer
+└── install.ps1              # Windows installer
 ```
 
 ## Setup on a new machine

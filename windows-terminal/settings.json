@@ -1,0 +1,250 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": { "action": "splitPane", "split": "horizontal", "splitMode": "duplicate" },
+            "id": "User.splitHorizontal"
+        },
+        {
+            "command": { "action": "splitPane", "split": "vertical", "splitMode": "duplicate" },
+            "id": "User.splitVertical"
+        },
+        {
+            "command": { "action": "moveFocus", "direction": "left" },
+            "id": "User.focusLeft"
+        },
+        {
+            "command": { "action": "moveFocus", "direction": "down" },
+            "id": "User.focusDown"
+        },
+        {
+            "command": { "action": "moveFocus", "direction": "up" },
+            "id": "User.focusUp"
+        },
+        {
+            "command": { "action": "moveFocus", "direction": "right" },
+            "id": "User.focusRight"
+        },
+        {
+            "command": { "action": "resizePane", "direction": "left" },
+            "id": "User.resizeLeft"
+        },
+        {
+            "command": { "action": "resizePane", "direction": "down" },
+            "id": "User.resizeDown"
+        },
+        {
+            "command": { "action": "resizePane", "direction": "up" },
+            "id": "User.resizeUp"
+        },
+        {
+            "command": { "action": "resizePane", "direction": "right" },
+            "id": "User.resizeRight"
+        },
+        {
+            "command": { "action": "nextTab" },
+            "id": "User.nextTab"
+        },
+        {
+            "command": { "action": "prevTab" },
+            "id": "User.prevTab"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "User.splitHorizontal",
+            "keys": "alt+-"
+        },
+        {
+            "id": "User.splitVertical",
+            "keys": "alt+|"
+        },
+        {
+            "id": "User.focusLeft",
+            "keys": "alt+h"
+        },
+        {
+            "id": "User.focusDown",
+            "keys": "alt+j"
+        },
+        {
+            "id": "User.focusUp",
+            "keys": "alt+k"
+        },
+        {
+            "id": "User.focusRight",
+            "keys": "alt+l"
+        },
+        {
+            "id": "User.resizeLeft",
+            "keys": "alt+shift+h"
+        },
+        {
+            "id": "User.resizeDown",
+            "keys": "alt+shift+j"
+        },
+        {
+            "id": "User.resizeUp",
+            "keys": "alt+shift+k"
+        },
+        {
+            "id": "User.resizeRight",
+            "keys": "alt+shift+l"
+        },
+        {
+            "id": "User.nextTab",
+            "keys": "alt+n"
+        },
+        {
+            "id": "User.prevTab",
+            "keys": "alt+p"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "font":
+            {
+                "face": "JetBrainsMono Nerd Font"
+            }
+        },
+        "list": 
+        [
+            {
+                "commandline": "%comspec% /c \"C:\\OneBranch\\AAPT\\Antares\\ApiHub\\init.cmd\" && powershell.exe -NoLogo",
+                "guid": "{be4a585d-97df-5387-a157-81149e4dfa65}",
+                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+                "name": "API Hub",
+                "startingDirectory": "C:\\OneBranch\\AAPT\\Antares\\ApiHub"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{1420bce1-319e-5b6f-88f5-e7230b353173}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{164fb226-59d3-5981-9d5b-73fb3de386a0}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git"
+            },
+            {
+                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
+                "hidden": false,
+                "name": "Ubuntu 24.04.1 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
+            },
+            {
+                "guid": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
+                "hidden": true,
+                "name": "Ubuntu-24.04",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{934764bc-5ca3-5166-88b0-cff911e951f3}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{48e77b4d-c6ed-58ba-8154-3d0e149f311d}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            }
+        ]
+    },
+    "schemes": [],
+    "themes": []
+}
