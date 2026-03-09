@@ -16,10 +16,6 @@
             "id": "User.paste"
         },
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
             "command": 
             {
                 "action": "splitPane",
@@ -29,52 +25,108 @@
             "id": "User.splitPane.A6751878"
         },
         {
-            "command": { "action": "splitPane", "split": "horizontal", "splitMode": "duplicate" },
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down",
+                "splitMode": "duplicate"
+            },
             "id": "User.splitHorizontal"
         },
         {
-            "command": { "action": "splitPane", "split": "vertical", "splitMode": "duplicate" },
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right",
+                "splitMode": "duplicate"
+            },
             "id": "User.splitVertical"
         },
         {
-            "command": { "action": "moveFocus", "direction": "left" },
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
             "id": "User.focusLeft"
         },
         {
-            "command": { "action": "moveFocus", "direction": "down" },
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
             "id": "User.focusDown"
         },
         {
-            "command": { "action": "moveFocus", "direction": "up" },
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
             "id": "User.focusUp"
         },
         {
-            "command": { "action": "moveFocus", "direction": "right" },
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
             "id": "User.focusRight"
         },
         {
-            "command": { "action": "resizePane", "direction": "left" },
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
             "id": "User.resizeLeft"
         },
         {
-            "command": { "action": "resizePane", "direction": "down" },
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "down"
+            },
             "id": "User.resizeDown"
         },
         {
-            "command": { "action": "resizePane", "direction": "up" },
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
             "id": "User.resizeUp"
         },
         {
-            "command": { "action": "resizePane", "direction": "right" },
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "right"
+            },
             "id": "User.resizeRight"
         },
         {
-            "command": { "action": "nextTab" },
+            "command": 
+            {
+                "action": "nextTab"
+            },
             "id": "User.nextTab"
         },
         {
-            "command": { "action": "prevTab" },
+            "command": 
+            {
+                "action": "prevTab"
+            },
             "id": "User.prevTab"
+        },
+        {
+            "command": "newTab",
+            "id": "User.newTab"
         }
     ],
     "copyFormatting": "none",
@@ -95,16 +147,20 @@
             "keys": "ctrl+shift+f"
         },
         {
+            "id": "User.nextTab",
+            "keys": "alt+n"
+        },
+        {
             "id": "User.splitPane.A6751878",
             "keys": "alt+shift+d"
         },
         {
             "id": "User.splitHorizontal",
-            "keys": "alt+-"
+            "keys": "alt+minus"
         },
         {
             "id": "User.splitVertical",
-            "keys": "alt+|"
+            "keys": "alt+shift+\\"
         },
         {
             "id": "User.focusLeft",
@@ -139,12 +195,12 @@
             "keys": "alt+shift+l"
         },
         {
-            "id": "User.nextTab",
-            "keys": "alt+n"
-        },
-        {
             "id": "User.prevTab",
             "keys": "alt+p"
+        },
+        {
+            "id": "User.newTab",
+            "keys": "alt+c"
         }
     ],
     "newTabMenu": 
@@ -157,7 +213,7 @@
     {
         "defaults": 
         {
-            "font":
+            "font": 
             {
                 "face": "JetBrainsMono Nerd Font"
             }
@@ -242,6 +298,42 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": true,
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{fe72c5c3-0468-5020-a95f-efc2a5d2b94c}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{27e806bc-6617-5e81-b9f5-d1293af33ff1}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{ea19ca5c-143b-5377-8634-353a39c51baf}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{e83b51fa-403c-54f0-b334-7d4d2f6486ca}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             }
         ]
     },
