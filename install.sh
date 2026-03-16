@@ -39,5 +39,30 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# Neovim dependencies
+echo ""
+echo "Installing Neovim dependencies..."
+
+# tree-sitter CLI (needed to compile treesitter parsers)
+if ! command -v tree-sitter &> /dev/null; then
+  if command -v npm &> /dev/null; then
+    npm install -g tree-sitter-cli
+    echo "✔ tree-sitter-cli installed"
+  else
+    echo "⚠ npm not found — install tree-sitter-cli manually: npm install -g tree-sitter-cli"
+  fi
+else
+  echo "✔ tree-sitter-cli already installed"
+fi
+
+# Sync Lazy plugins and install treesitter parsers
+if command -v nvim &> /dev/null; then
+  echo "Syncing Neovim plugins..."
+  nvim --headless "+Lazy! sync" +qa 2>/dev/null
+  echo "✔ Neovim plugins synced"
+else
+  echo "⚠ nvim not found — install Neovim 0.11+ and run :Lazy sync manually"
+fi
+
 echo ""
 echo "Done! Restart your terminal and run 'Ctrl-a I' in tmux to install plugins."

@@ -40,6 +40,31 @@ if (Test-Path $ProfileTarget) {
 New-Item -ItemType SymbolicLink -Path $ProfileTarget -Target "$DotfilesDir\powershell\Microsoft.PowerShell_profile.ps1" -Force
 Write-Host "✔ PowerShell profile linked"
 
+# Neovim dependencies
+Write-Host ""
+Write-Host "Installing Neovim dependencies..."
+
+# tree-sitter CLI (needed to compile treesitter parsers)
+if (!(Get-Command tree-sitter -ErrorAction SilentlyContinue)) {
+    if (Get-Command npm -ErrorAction SilentlyContinue) {
+        npm install -g tree-sitter-cli
+        Write-Host "✔ tree-sitter-cli installed"
+    } else {
+        Write-Host "⚠ npm not found — install tree-sitter-cli manually: npm install -g tree-sitter-cli"
+    }
+} else {
+    Write-Host "✔ tree-sitter-cli already installed"
+}
+
+# Sync Lazy plugins and install treesitter parsers
+if (Get-Command nvim -ErrorAction SilentlyContinue) {
+    Write-Host "Syncing Neovim plugins..."
+    nvim --headless "+Lazy! sync" +qa 2>&1 | Out-Null
+    Write-Host "✔ Neovim plugins synced"
+} else {
+    Write-Host "⚠ nvim not found — install Neovim 0.11+ and run :Lazy sync manually"
+}
+
 Write-Host ""
 Write-Host "Note: For tmux and zsh, run install.sh inside WSL."
 Write-Host ""
