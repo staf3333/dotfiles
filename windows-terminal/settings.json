@@ -228,7 +228,7 @@
         "list": 
         [
             {
-                "commandline": "%comspec% /c \"C:\\OneBranch\\AAPT\\Antares\\ApiHub\\init.cmd\" && powershell.exe -NoLogo",
+                "commandline": "%comspec% /c \"C:\\OneBranch\\AAPT\\Antares\\ApiHub\\init.cmd\" && pwsh.exe -NoLogo",
                 "guid": "{be4a585d-97df-5387-a157-81149e4dfa65}",
                 "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
                 "name": "API Hub",
