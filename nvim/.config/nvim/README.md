@@ -17,10 +17,12 @@
 | **lualine.nvim** | Status bar (file, branch, diagnostics) |
 | **which-key.nvim** | Keybinding popup (press Space and wait) |
 | **harpoon** | Quick file bookmarks (jump between 4 files) |
-| **trouble.nvim** | Diagnostics, references, quickfix panel |
+| **trouble.nvim** | Diagnostics, references, quickfix panel (auto-hijacks quickfix) |
 | **snacks.nvim** | Notifier, dashboard, scroll, zen, indent, lazygit, gitbrowse |
 | **inc-rename.nvim** | Live inline preview for LSP renames |
-| **mini.nvim** | Utilities |
+| **flash.nvim** | Jump anywhere on screen in 2-3 keystrokes |
+| **undotree** | Visual undo history tree |
+| **mini.nvim** | Utilities (autopairs, surround, statusline) |
 
 ## Keybindings
 
@@ -32,7 +34,7 @@
 |---|---|
 | `gd` | Go to definition |
 | `gD` | Go to declaration |
-| `gr` | Find all references |
+| `gr` | Find all references (Telescope) |
 | `gi` | Go to implementation |
 | `<leader>gt` | Go to type definition |
 | `K` | Hover docs (info about symbol) |
@@ -116,17 +118,38 @@
 | `<leader>dL` | Toggle location list |
 | `<leader>dQ` | Toggle quickfix list |
 
+### Flash (navigation)
+
+| Key | Action |
+|---|---|
+| `s` | Flash jump (type chars, pick label) |
+| `S` | Flash treesitter (select code blocks) |
+
+### Undotree
+
+| Key | Action |
+|---|---|
+| `<leader>u` | Toggle visual undo history |
+
+### Surround (mini.surround)
+
+| Key | Example | Action |
+|---|---|---|
+| `gsa` | `gsaiw"` | Add surrounding (wrap word in `"`) |
+| `gsd` | `gsd"` | Delete surrounding `"` |
+| `gsr` | `gsr"'` | Replace surrounding `"` with `'` |
+
 ### General
 
 | Key | Action |
 |---|---|
 | `<space><space>x` | Source current file |
 | `<space>x` | Execute current line as Lua |
-| `-` | Open Oil file explorer |
+| `-` | Open Oil file explorer (`q` to close) |
 | `<leader>tt` | Toggle floating terminal |
 | `<leader>ts` | Open split terminal |
 | `Ctrl+/` | Toggle comment |
-| `Alt+j` / `Alt+k` | Next / prev quickfix |
+| `Alt+j` / `Alt+k` | Next / prev in Trouble list |
 | `Esc Esc` | Exit terminal mode |
 
 ### Roslyn (C# specific)
