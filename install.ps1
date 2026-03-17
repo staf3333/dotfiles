@@ -28,17 +28,25 @@ if (Test-Path $WTTarget) {
 New-Item -ItemType SymbolicLink -Path $WTTarget -Target "$DotfilesDir\windows-terminal\settings.json" -Force
 Write-Host "✔ Windows Terminal settings linked"
 
-# PowerShell profile
-$ProfileTarget = $PROFILE
-$ProfileDir = Split-Path -Parent $ProfileTarget
-if (!(Test-Path $ProfileDir)) { New-Item -ItemType Directory -Path $ProfileDir -Force | Out-Null }
-if (Test-Path $ProfileTarget) {
-    Write-Host "Backing up existing PowerShell profile to $ProfileTarget.bak"
-    Copy-Item $ProfileTarget "$ProfileTarget.bak" -Force
-    Remove-Item $ProfileTarget -Force
+# PowerShell profiles (both Windows PowerShell and PowerShell Core)
+# Uses the actual Documents path (handles OneDrive redirection automatically)
+$ProfileSource = "$DotfilesDir\powershell\Microsoft.PowerShell_profile.ps1"
+$DocsDir = [Environment]::GetFolderPath("MyDocuments")
+$ProfilePaths = @(
+    "$DocsDir\WindowsPowerShell\Microsoft.PowerShell_profile.ps1",
+    "$DocsDir\PowerShell\Microsoft.PowerShell_profile.ps1"
+)
+foreach ($ProfileTarget in $ProfilePaths) {
+    $ProfileDir = Split-Path -Parent $ProfileTarget
+    if (!(Test-Path $ProfileDir)) { New-Item -ItemType Directory -Path $ProfileDir -Force | Out-Null }
+    if (Test-Path $ProfileTarget) {
+        Write-Host "Backing up existing profile to $ProfileTarget.bak"
+        Copy-Item $ProfileTarget "$ProfileTarget.bak" -Force
+        Remove-Item $ProfileTarget -Force
+    }
+    New-Item -ItemType SymbolicLink -Path $ProfileTarget -Target $ProfileSource -Force
+    Write-Host "✔ Profile linked: $ProfileTarget"
 }
-New-Item -ItemType SymbolicLink -Path $ProfileTarget -Target "$DotfilesDir\powershell\Microsoft.PowerShell_profile.ps1" -Force
-Write-Host "✔ PowerShell profile linked"
 
 # Neovim dependencies
 Write-Host ""
