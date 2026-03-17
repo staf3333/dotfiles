@@ -25,8 +25,12 @@ vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":.lua<CR>")
 
-vim.keymap.set("n", "<M-j>", "<CMD>cnext<CR>")
-vim.keymap.set("n", "<M-k>", "<CMD>cprev<CR>")
+vim.keymap.set("n", "<M-j>", function()
+  require("trouble").next({ skip_groups = true, jump = true })
+end)
+vim.keymap.set("n", "<M-k>", function()
+  require("trouble").prev({ skip_groups = true, jump = true })
+end)
 
 
 -- keyboard shortcut for getting back to normal mode while in terminal
