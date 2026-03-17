@@ -1,8 +1,27 @@
 return {
   {
     "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    opts = {},
     cmd = "Trouble",
+    init = function()
+      -- Auto-open Trouble whenever the quickfix list is opened
+      vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+        callback = function()
+          vim.cmd([[Trouble qflist open]])
+        end,
+      })
+      -- Hijack the built-in quickfix window
+      vim.api.nvim_create_autocmd("BufRead", {
+        callback = function(ev)
+          if vim.bo[ev.buf].buftype == "quickfix" then
+            vim.schedule(function()
+              vim.cmd([[cclose]])
+              vim.cmd([[Trouble qflist open]])
+            end)
+          end
+        end,
+      })
+    end,
     keys = {
       {
         "<leader>dd",

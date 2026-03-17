@@ -32,7 +32,7 @@ return {
           -- navigation
           map("gd", vim.lsp.buf.definition, "Go to definition")
           map("gD", vim.lsp.buf.declaration, "Go to declaration")
-          map("gr", vim.lsp.buf.references, "Find references")
+          map("gr", require("telescope.builtin").lsp_references, "Find references")
           map("gi", vim.lsp.buf.implementation, "Go to implementation")
           map("<leader>gt", vim.lsp.buf.type_definition, "Go to type definition")
 
