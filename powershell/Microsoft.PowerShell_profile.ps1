@@ -25,4 +25,5 @@ function New-CopilotPane {
 }
 
 function apihub { Set-Location "C:\OneBranch\AAPT\Antares\ApiHub"; nvim src }
+function firstparty { Set-Location "C:\OneBranch\AAD-FirstPartyApps-Apihub" }
 function nvimconfig { Set-Location "$HOME\dotfiles"; nvim nvim/.config/nvim }
