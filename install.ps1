@@ -28,17 +28,50 @@ if (Test-Path $WTTarget) {
 New-Item -ItemType SymbolicLink -Path $WTTarget -Target "$DotfilesDir\windows-terminal\settings.json" -Force
 Write-Host "✔ Windows Terminal settings linked"
 
-# PowerShell profile
-$ProfileTarget = $PROFILE
-$ProfileDir = Split-Path -Parent $ProfileTarget
-if (!(Test-Path $ProfileDir)) { New-Item -ItemType Directory -Path $ProfileDir -Force | Out-Null }
-if (Test-Path $ProfileTarget) {
-    Write-Host "Backing up existing PowerShell profile to $ProfileTarget.bak"
-    Copy-Item $ProfileTarget "$ProfileTarget.bak" -Force
-    Remove-Item $ProfileTarget -Force
+# PowerShell profiles (both Windows PowerShell and PowerShell Core)
+# Uses the actual Documents path (handles OneDrive redirection automatically)
+$ProfileSource = "$DotfilesDir\powershell\Microsoft.PowerShell_profile.ps1"
+$DocsDir = [Environment]::GetFolderPath("MyDocuments")
+$ProfilePaths = @(
+    "$DocsDir\WindowsPowerShell\Microsoft.PowerShell_profile.ps1",
+    "$DocsDir\PowerShell\Microsoft.PowerShell_profile.ps1"
+)
+foreach ($ProfileTarget in $ProfilePaths) {
+    $ProfileDir = Split-Path -Parent $ProfileTarget
+    if (!(Test-Path $ProfileDir)) { New-Item -ItemType Directory -Path $ProfileDir -Force | Out-Null }
+    if (Test-Path $ProfileTarget) {
+        Write-Host "Backing up existing profile to $ProfileTarget.bak"
+        Copy-Item $ProfileTarget "$ProfileTarget.bak" -Force
+        Remove-Item $ProfileTarget -Force
+    }
+    New-Item -ItemType SymbolicLink -Path $ProfileTarget -Target $ProfileSource -Force
+    Write-Host "✔ Profile linked: $ProfileTarget"
 }
-New-Item -ItemType SymbolicLink -Path $ProfileTarget -Target "$DotfilesDir\powershell\Microsoft.PowerShell_profile.ps1" -Force
-Write-Host "✔ PowerShell profile linked"
+
+# Neovim dependencies
+Write-Host ""
+Write-Host "Installing Neovim dependencies..."
+
+# tree-sitter CLI (needed to compile treesitter parsers)
+if (!(Get-Command tree-sitter -ErrorAction SilentlyContinue)) {
+    if (Get-Command npm -ErrorAction SilentlyContinue) {
+        npm install -g tree-sitter-cli
+        Write-Host "✔ tree-sitter-cli installed"
+    } else {
+        Write-Host "⚠ npm not found — install tree-sitter-cli manually: npm install -g tree-sitter-cli"
+    }
+} else {
+    Write-Host "✔ tree-sitter-cli already installed"
+}
+
+# Sync Lazy plugins and install treesitter parsers
+if (Get-Command nvim -ErrorAction SilentlyContinue) {
+    Write-Host "Syncing Neovim plugins..."
+    nvim --headless "+Lazy! sync" +qa 2>&1 | Out-Null
+    Write-Host "✔ Neovim plugins synced"
+} else {
+    Write-Host "⚠ nvim not found — install Neovim 0.11+ and run :Lazy sync manually"
+}
 
 # Neovim dependencies
 Write-Host ""

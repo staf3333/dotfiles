@@ -33,6 +33,17 @@ cd $HOME\dotfiles
 .\install.ps1
 ```
 
+## Troubleshooting
+
+### PowerShell profile not loading (Oh My Posh missing, no styling)
+
+On Windows with OneDrive, the Documents folder gets redirected to `OneDrive\Documents`. PowerShell looks for its profile there, and OneDrive can sometimes break symlinks during sync.
+
+**Fix:** Re-run `.\install.ps1` as Administrator. The script detects the actual Documents path (even if OneDrive-redirected) and creates symlinks for both Windows PowerShell and PowerShell Core.
+
+If the issue keeps recurring, you can stop OneDrive from syncing Documents:
+OneDrive Settings → Manage backup → untick "Documents".
+
 ## After install
 - Open tmux and press `Ctrl-a I` to install tmux plugins
 - Open nvim and let Lazy sync plugins automatically
