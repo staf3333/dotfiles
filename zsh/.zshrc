@@ -116,3 +116,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 # Neovim config shortcut
 alias nvimconfig="cd ~/.config/nvim && nvim ."
+
+# Lazygit: load macOS nvim-remote override alongside base config
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/config-darwin.yml"

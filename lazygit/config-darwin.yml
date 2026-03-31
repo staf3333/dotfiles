@@ -1,0 +1,8 @@
+os:
+  # macOS override: reuse an existing nvim instance via nvim-remote
+  # If $NVIM is set (running inside nvim terminal), open as a tab in that instance
+  # Otherwise, open a fresh nvim
+  edit: '[ -z "$NVIM" ] && nvim -- {{filename}} || nvim --server "$NVIM" --remote-tab {{filename}}'
+  editAtLine: '[ -z "$NVIM" ] && nvim +{{line}} -- {{filename}} || nvim --server "$NVIM" --remote-send "<cmd>tabedit +{{line}} {{filename}}<cr>"'
+  editAtLineAndWait: 'nvim +{{line}} -- {{filename}}'
+  editInTerminal: true

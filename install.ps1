@@ -28,6 +28,18 @@ if (Test-Path $WTTarget) {
 New-Item -ItemType SymbolicLink -Path $WTTarget -Target "$DotfilesDir\windows-terminal\settings.json" -Force
 Write-Host "✔ Windows Terminal settings linked"
 
+# Lazygit
+$LazygitTarget = "$env:LOCALAPPDATA\lazygit\config.yml"
+$LazygitDir = Split-Path -Parent $LazygitTarget
+if (!(Test-Path $LazygitDir)) { New-Item -ItemType Directory -Path $LazygitDir -Force | Out-Null }
+if (Test-Path $LazygitTarget) {
+    Write-Host "Backing up existing lazygit config to $LazygitTarget.bak"
+    Copy-Item $LazygitTarget "$LazygitTarget.bak" -Force
+    Remove-Item $LazygitTarget -Force
+}
+New-Item -ItemType SymbolicLink -Path $LazygitTarget -Target "$DotfilesDir\lazygit\config.yml" -Force
+Write-Host "✔ Lazygit config linked"
+
 # PowerShell profiles (both Windows PowerShell and PowerShell Core)
 # Uses the actual Documents path (handles OneDrive redirection automatically)
 $ProfileSource = "$DotfilesDir\powershell\Microsoft.PowerShell_profile.ps1"

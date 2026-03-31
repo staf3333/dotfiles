@@ -4,7 +4,7 @@ return {
     config = function()
       -- Windows: use diff.exe bundled with Git
       if vim.fn.has("win32") == 1 then
-        vim.g.undotree_DiffCommand = "C:\\Program Files\\Git\\usr\\bin\\diff.exe"
+        vim.g.undotree_DiffCommand = "C:\\Progra~1\\Git\\usr\\bin\\diff.exe"
       end
     end,
     keys = {

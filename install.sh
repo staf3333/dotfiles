@@ -33,6 +33,22 @@ fi
 ln -sf "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
 echo "✔ Zshrc linked"
 
+# Lazygit
+LAZYGIT_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/lazygit"
+mkdir -p "$LAZYGIT_CONFIG_DIR"
+if [ -e "$LAZYGIT_CONFIG_DIR/config.yml" ]; then
+  echo "Backing up existing lazygit config to $LAZYGIT_CONFIG_DIR/config.yml.bak"
+  mv "$LAZYGIT_CONFIG_DIR/config.yml" "$LAZYGIT_CONFIG_DIR/config.yml.bak"
+fi
+ln -sf "$DOTFILES_DIR/lazygit/config.yml" "$LAZYGIT_CONFIG_DIR/config.yml"
+if [ "$(uname)" = "Darwin" ]; then
+  ln -sf "$DOTFILES_DIR/lazygit/config-darwin.yml" "$LAZYGIT_CONFIG_DIR/config-darwin.yml"
+  echo "✔ Lazygit config linked (with macOS nvim-remote override)"
+  echo "  Add to your .zshrc:  export LG_CONFIG_FILE=\"\$HOME/.config/lazygit/config.yml,\$HOME/.config/lazygit/config-darwin.yml\""
+else
+  echo "✔ Lazygit config linked"
+fi
+
 # Install TPM if not present
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   echo "Installing tmux plugin manager..."

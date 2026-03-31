@@ -1,0 +1,7 @@
+os:
+  # Plain nvim — works on all platforms (Windows, macOS, Linux)
+  # For macOS nvim-remote support, see config-darwin.yml
+  edit: 'nvim -- {{filename}}'
+  editAtLine: 'nvim +{{line}} -- {{filename}}'
+  editAtLineAndWait: 'nvim +{{line}} -- {{filename}}'
+  editInTerminal: true
