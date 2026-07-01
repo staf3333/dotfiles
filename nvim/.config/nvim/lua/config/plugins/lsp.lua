@@ -34,21 +34,18 @@ return {
           map("gD", vim.lsp.buf.declaration, "Go to declaration")
           map("gr", require("telescope.builtin").lsp_references, "Find references")
           map("gi", vim.lsp.buf.implementation, "Go to implementation")
-          map("<leader>gt", vim.lsp.buf.type_definition, "Go to type definition")
+          -- grt for type_definition is a built-in default in 0.12
 
           -- info
           map("K", vim.lsp.buf.hover, "Hover docs")
           map("<leader>sh", vim.lsp.buf.signature_help, "Signature help")
 
           -- actions
-          vim.keymap.set("n", "<leader>rn", function()
-            return ":IncRename " .. vim.fn.expand("<cword>")
-          end, { buffer = args.buf, desc = "LSP: Rename symbol", expr = true })
+          map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
           map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("grx", vim.lsp.codelens.run, "Run codelens")
 
-          -- diagnostics
-          map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
-          map("]d", vim.diagnostic.goto_next, "Next diagnostic")
+          -- diagnostics ([d and ]d are built-in defaults in 0.12)
           map("<leader>e", vim.diagnostic.open_float, "Show diagnostic")
 
           -- manual format only

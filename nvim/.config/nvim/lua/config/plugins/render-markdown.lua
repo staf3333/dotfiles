@@ -7,5 +7,13 @@ return {
             'echasnovski/mini.nvim',
         },
         opts = {},
+        keys = {
+            {
+                '<leader>mr',
+                '<cmd>RenderMarkdown buf_toggle<cr>',
+                ft = { 'markdown', 'codecompanion' },
+                desc = 'Render Markdown (in-buffer) toggle',
+            },
+        },
     },
 }

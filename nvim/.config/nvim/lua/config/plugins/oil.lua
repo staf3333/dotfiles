@@ -6,6 +6,7 @@ return {
     opts = {
       keymaps = {
         ["q"] = "actions.close",
+        ["gy"] = "actions.copy_entry_path",
       },
     },
     -- Optional dependencies

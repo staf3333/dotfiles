@@ -12,6 +12,7 @@ return {
         { "<leader>s", group = "Signature/Search" },
         { "<leader>t", group = "Terminal" },
         { "<leader>d", group = "Diagnostics (Trouble)" },
+        { "<leader>m", group = "Markdown" },
       },
     },
   },

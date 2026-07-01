@@ -41,3 +41,25 @@ Goal: Do everything in Neovim — editing, navigating, building, debugging C#/.N
 - Roslyn LSP installed via Mason (`:MasonInstall roslyn`)
 - PowerShell alias `apihub` opens nvim in ApiHub/src
 - The realistic endgame: nvim for 90% of work, Visual Studio as fallback for complex debug sessions
+
+## Neovim 0.12 Migration (April 2025)
+
+### Breaking change fixes
+- Replaced `vim.tbl_flatten` with `vim.iter():flatten():totable()` in multigrep.lua
+
+### Plugins removed (replaced by built-ins)
+- **inc-rename.nvim** → `vim.lsp.buf.rename()` now highlights the symbol natively
+
+### Keybind changes
+- `<leader>rn` now uses built-in `vim.lsp.buf.rename()` instead of `:IncRename`
+- `<leader>gt` removed — use built-in `grt` for type definition
+- `[d`/`]d` removed — these are built-in defaults in 0.12
+- `grx` added — run LSP codelens (run tests, etc.)
+
+### New built-in features available
+- `grt` — go to type definition (built-in default)
+- `grx` — run codelens (built-in default)
+- `v_an`/`v_in` — incremental selection via LSP/treesitter
+- Tab completion in `/` and `?` search
+- `:wall ++p` — auto-create parent directories on save
+- `K` in help buffers — DWIM help lookup
